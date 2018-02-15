@@ -1,11 +1,19 @@
+#include <SPI.h>
+#include <Wire.h>
+#include "headers/Display.hpp"
 #include "headers/Menu.hpp"
 #include "headers/BatStatus.hpp"
-
 void setup()
 {
-  Menu my_menu;
+  Serial.begin(9600);
+  while (!Serial) {
+    ;
+  }
+  Serial.println("SALUT LES COPAINS");
+/*  Menu my_menu;
   BatStatus bat;
-  bat.BatStatusMenu();
+  bat.BatStatusMenu();*/
+  Display OLED;
 }
 
 void loop()

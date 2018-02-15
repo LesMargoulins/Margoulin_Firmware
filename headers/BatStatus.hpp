@@ -8,6 +8,8 @@ class BatStatus
     BatStatus();
     ~BatStatus();
     String BatStatusMenu();
+  private:
+
 };
 
 #endif /* BATSTATUS_HPP_ */
