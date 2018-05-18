@@ -1,23 +1,17 @@
 // Display.hpp
 #ifndef DISPLAY_HPP_
 # define DISPLAY_HPP_
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-#define OLED_RESET 4
-#define NUMFLAKES 10
-#define XPOS 0
-#define YPOS 1
-#define DELTAY 2
+
+enum DisplayType { CONSOLE, LCD16x2, OLED };
 
 class Display
 {
   public:
-    Display();
+    Display(enum DisplayType);
     ~Display();
+    void print();
   private:
-
-
-
+    enum DisplayType _type;
 };
 
 #endif /* DISPLAY_HPP_ */

@@ -4,21 +4,32 @@
 */
 
 #include "headers/Display.hpp"
+#include <Arduino.h>
 
-Display::Display()
+
+Display::Display(enum DisplayType type)
 {
-  Serial.print("test");
-  Adafruit_SSD1306 oled(OLED_RESET);
+  switch (type) {
+    case LCD16x2:
+      Serial.print("LCD SELECTED");
+      _type = type;
+      break;
+    case OLED:
+      break;
+      Serial.print("OLED SELECTED");
+    default:
+      Serial.print("CONSOLE SELECTED");
+  }
 
-  oled.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
-  oled.display();
-  delay(2000);
-  //oled.clearDisplay();
-  //oled.display();
-  Serial.print("salut");
-//  oled.clearDisplay();
-//  oled.drawPixel(10, 10, WHITE);
-//  oled.display();
+  Serial.println("TYPE :");
+  Serial.println(_type);
+  Serial.println("salut");
+
+}
+
+void Display::print()
+{
+
 }
 
 Display::~Display()
