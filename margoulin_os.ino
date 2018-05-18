@@ -1,5 +1,6 @@
 #include <SPI.h>
 #include <Wire.h>
+#include <WString.h>
 #include "headers/Display.hpp"
 #include "headers/Menu.hpp"
 #include "headers/BatStatus.hpp"
@@ -11,7 +12,9 @@ void setup()
     ;
   }
   Serial.println("SALUT LES COPAINS");
-  Display lcd(LCD16x2);
+  Display display(LCD16x2);
+  display.clear();
+//  display.prints("Margoulineur2000 REVB");
 /*  Menu my_menu;
   BatStatus bat;
   bat.BatStatusMenu();*/
