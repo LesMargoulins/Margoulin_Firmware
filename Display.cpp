@@ -6,7 +6,7 @@
 # include "headers/Display.hpp"
 
 
-Display::Display(enum DisplayType type)
+Display::Display(DisplayType type)
 {
   _type = type;
   switch (_type) {
@@ -28,11 +28,12 @@ Display::Display(enum DisplayType type)
 
 Display::~Display()
 {
-
+  Serial.println("Destruction Display")
 }
 
 void Display::print(char* text)
 {
+
 }
 
 void Display::clear()
@@ -50,4 +51,14 @@ void Display::clear()
       Serial.write(27);
       Serial.print("[H");
   }
+}
+
+DisplayType Display::getDisplayType()
+{
+  return (this->_type);
+}
+
+void Display::setDisplayType(DisplayType type)
+{
+  this->_type = type;
 }
