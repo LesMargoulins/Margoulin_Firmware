@@ -7,8 +7,10 @@ enum InputType { ENCODER, DPAD };
 class Input
 {
   public:
-    Input();
+    Input(InputType type);
     ~Input();
+  private:
+    InputType _type;
 };
 
 #endif /* INPUT_HPP_ */

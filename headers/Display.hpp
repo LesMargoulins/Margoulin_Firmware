@@ -13,7 +13,7 @@ class Display
   public:
     Display(DisplayType type);
     ~Display();
-    void print(char* text);
+    void print(String text);
     void clear();
     void pos(int X, int Y);
 

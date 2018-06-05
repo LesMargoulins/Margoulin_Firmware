@@ -3,7 +3,7 @@
 * This class diplay stuff on the terminal or lcd or oled display
 */
 
-# include "headers/Display.hpp"
+#include "headers/Display.hpp"
 
 
 Display::Display(DisplayType type)
@@ -12,6 +12,7 @@ Display::Display(DisplayType type)
   switch (_type) {
     case LCD16x2:
       Serial.print("LCD SELECTED");
+        this->_lcd.begin(16, 2);
       //this->_lcd = lcd;
       break;
     case OLED:
@@ -23,15 +24,14 @@ Display::Display(DisplayType type)
 
   Serial.println("TYPE :");
   Serial.println(_type);
-  Serial.println("salut");
 }
 
 Display::~Display()
 {
-  Serial.println("Destruction Display")
+  Serial.println("Destruction Display");
 }
 
-void Display::print(char* text)
+void Display::print(String text)
 {
 
 }

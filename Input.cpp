@@ -10,9 +10,9 @@
 
 #include "headers/Input.hpp"
 
-Input::Input()
+Input::Input(InputType type)
 {
-
+  _type = type;
 }
 
 Input::~Input()

@@ -11,9 +11,12 @@ void setup()
   while (!Serial) {
     ;
   }
+
+
   Serial.println("SALUT LES COPAINS");
   Display display(LCD16x2);
   display.clear();
+  display.print("Margoulineur2000\rREVB");
 //  display.prints("Margoulineur2000 REVB");
 /*  Menu my_menu;
   BatStatus bat;
