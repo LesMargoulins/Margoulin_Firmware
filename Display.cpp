@@ -33,8 +33,34 @@ Display::~Display()
 
 void Display::print(String text)
 {
-
+  switch (_type) {
+    case LCD16x2:
+      _lcd.print(text);
+      break;
+    case OLED:
+    //TODO: OLED PRT
+      break;
+    default:
+      Serial.print(text);
+  }
 }
+
+void Display::println(String text)
+{
+  switch (_type) {
+    case LCD16x2:
+      _lcd.setCursor(0,_cursor);
+      _lcd.print(text);
+      _cursor++;
+      break;
+    case OLED:
+    //TODO: OLED PRT
+      break;
+    default:
+      Serial.println(text);
+  }
+}
+
 
 void Display::clear()
 {

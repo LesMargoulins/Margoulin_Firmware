@@ -14,6 +14,7 @@ class Display
     Display(DisplayType type);
     ~Display();
     void print(String text);
+    void println(String text);
     void clear();
     void pos(int X, int Y);
 
@@ -21,6 +22,7 @@ class Display
     void setDisplayType(DisplayType type);
   private:
     DisplayType _type;
+    int _cursor;
     LiquidCrystal _lcd = LiquidCrystal(10, 5, 6, 7, 8, 9);
 };
 
