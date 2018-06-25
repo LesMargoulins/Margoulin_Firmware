@@ -31,11 +31,31 @@ Display::~Display()
   Serial.println("Destruction Display");
 }
 
-void Display::print(String text)
+String Display::getValue(String data, char separator, int index)
+{
+  int found = 0;
+  int strIndex[] = {0, -1};
+  int maxIndex = data.length()-1;
+
+  for(int i=0; i<=maxIndex && found<=index; i++){
+    if(data.charAt(i)==separator || i==maxIndex){
+        found++;
+        strIndex[0] = strIndex[1]+1;
+        strIndex[1] = (i == maxIndex) ? i+1 : i;
+    }
+  }
+
+  return found>index ? data.substring(strIndex[0], strIndex[1]) : "";
+}
+
+void Display::print(String text, int center, int scroll)
 {
   switch (_type) {
     case LCD16x2:
-      _lcd.print(text);
+      _lcd.setCursor(0, 0);
+      _lcd.print(getValue(text,'\r',0));
+      _lcd.setCursor(0, 1);
+      _lcd.print(getValue(text,'\r',1));
       break;
     case OLED:
     //TODO: OLED PRT

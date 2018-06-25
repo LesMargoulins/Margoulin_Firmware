@@ -13,7 +13,7 @@ class Display
   public:
     Display(DisplayType type);
     ~Display();
-    void print(String text);
+    void print(String text, int center, int scroll);
     void println(String text);
     void clear();
     void pos(int X, int Y);
@@ -23,7 +23,10 @@ class Display
   private:
     DisplayType _type;
     int _cursor;
+    const int _lcdRows = 2;
+    const int _lcdCols = 16;
     LiquidCrystal _lcd = LiquidCrystal(10, 5, 6, 7, 8, 9);
+    String getValue(String data, char separator, int index);
 };
 
 #endif /* DISPLAY_HPP_ */
